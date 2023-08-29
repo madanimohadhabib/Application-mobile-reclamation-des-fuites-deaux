@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "818879985610",
+    "project_id": "chakwa-cca7c",
+    "storage_bucket": "chakwa-cca7c.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:818879985610:android:67fbd4e9b45b66ae3e4133",
+        "android_client_info": {
+          "package_name": "com.example.chaakwamob"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "818879985610-jnm1j721m3kljiiecq1gbm1b37mcpsi6.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDAn7d36Lz8ExULXJPiTtwxBwhBdvKmCxA"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "818879985610-jnm1j721m3kljiiecq1gbm1b37mcpsi6.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
