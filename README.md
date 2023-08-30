@@ -26,4 +26,4 @@ The mobile application for reporting water leaks is a user-friendly and efficien
 
 # 5- Authors:
 
-This app was developed with love by @madanimohadhabib
+This app was developed with love by [madanimohadhabib](https://github.com/madanimohadhabib)
