@@ -2,8 +2,10 @@ import 'dart:io';
 
 import 'package:date_time_picker/date_time_picker.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_map/flutter_map.dart';
 import 'package:flutter_osm_plugin/flutter_osm_plugin.dart';
 import 'package:image_picker/image_picker.dart';
+import 'package:latlong2/latlong.dart';
 import 'package:open_street_map_search_and_pick/open_street_map_search_and_pick.dart';
 
 class ReclamationForm extends StatefulWidget {
@@ -58,11 +60,12 @@ class _ReclamationFormState extends State<ReclamationForm> {
     }
   }
 
-  void _onLocationPicked(LatLong latLong, String address) {
+  void _onLocationPicked(
+    LatLong latLong,
+  ) {
     setState(() {
       selectedLatitude = latLong.latitude;
       selectedLongitude = latLong.longitude;
-      selectedAddress = address;
     });
   }
 
@@ -176,16 +179,38 @@ class _ReclamationFormState extends State<ReclamationForm> {
                   ),
                   width: 380,
                   height: 348,
-                  child: OpenStreetMapSearchAndPick(
-                    center: LatLong(35.9311500, 0.0891800),
-                    buttonColor: Colors.blue,
-                    buttonText: 'Set Current Location',
-                    onPicked: (pickedData) {
-                      _onLocationPicked(pickedData.latLong, pickedData.address);
-                      print(pickedData.latLong.latitude);
-                      print(pickedData.latLong.longitude);
-                      print(pickedData.address);
-                    },
+                  child: FlutterMap(
+                    options: MapOptions(
+                      center: LatLng(35.9311500, 0.0891800),
+                      zoom: 13.0,
+                      minZoom: 10,
+                      maxZoom: 17,
+                      onTap: (tapPosition, point) => _onLocationPicked(
+                          LatLong(point.latitude, point.longitude)),
+                    ),
+                    children: [
+                      TileLayer(
+                        urlTemplate:
+                            'https://tile.openstreetmap.org/{z}/{x}/{y}.png',
+                        userAgentPackageName: 'com.example.app',
+                      ),
+                      MarkerLayer(
+                        markers: [
+                          Marker(
+                            width: 100.0,
+                            height: 100.0,
+                            point: LatLng(selectedLatitude, selectedLongitude),
+                            builder: (ctx) => Container(
+                              child: const Icon(
+                                Icons.location_on,
+                                color: Colors.red,
+                                size: 48.0,
+                              ),
+                            ),
+                          ),
+                        ],
+                      ),
+                    ],
                   ),
                 ),
                 SizedBox(height: 10.0),

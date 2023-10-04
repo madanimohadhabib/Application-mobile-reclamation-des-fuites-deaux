@@ -232,12 +232,6 @@ class _DetailReclamationParUserScreenState
                       ),
                     ),
                   ),
-                  Text(
-                    "address: $address",
-                    style: const TextStyle(
-                      fontSize: 18,
-                    ),
-                  ),
                   const SizedBox(height: 16),
                   const Center(
                     child: Text(

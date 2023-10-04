@@ -22,6 +22,10 @@ The mobile application for reporting water leaks is a user-friendly and efficien
 
 - Firebase: A Google mobile app development platform, offering a range of tools such as authentication, real-time database, file storage, and push notifications.
 
+- To access his account as admin:
+- Username = admin
+- Password = admin123
+
 # 4- Screenshots:
 
 # 5- Authors:
